@@ -3,25 +3,25 @@ import Logo from '../assets/images/Galaxy-Code.png';
 
 const Footer: React.FC = () => {
     return (
-            <div className="flex items-end w-full min-h-screen bg-white">
+            <div className="flex items-end">
 
                 <footer className="w-full text-gray-300 bg-gray-800 body-font">
                     <div
                         className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
                         <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
-                            <a className="flex items-center justify-center font-medium text-gray-300 title-font md:justify-start">
-                                <img className="h-14 mx-7" src={Logo} alt="logo"/>
+                            <a className="flex items-center justify-center font-medium text-gray-300 title-font md:justify-start" href="/#">
+                                <img className="h-14 mx-10" src={Logo} alt="logo"/>
                             </a>
                             <p className="mt-2 text-sm text-gray-300">Learn, Code and Galaxy!</p>
                             <div className="mt-4">
                                 <span className="inline-flex justify-center mt-2 sm:ml-auto sm:mt-0 sm:justify-start">
-                                    <a className="text-gray-300 cursor-pointer hover:text-white">
+                                    <a className="text-gray-300 cursor-pointer hover:text-white" href="/#">
                                         <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             className="w-5 h-5" viewBox="0 0 24 24">
                                             <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                                         </svg>
                                     </a>
-                                    <a className="ml-3 text-gray-300 cursor-pointer hover:text-white">
+                                    <a className="ml-3 text-gray-300 cursor-pointer hover:text-white" href="/#">
                                         <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             className="w-5 h-5" viewBox="0 0 24 24">
                                             <path
@@ -29,14 +29,14 @@ const Footer: React.FC = () => {
                                             </path>
                                         </svg>
                                     </a>
-                                    <a className="ml-3 text-gray-300 cursor-pointer hover:text-white">
+                                    <a className="ml-3 text-gray-300 cursor-pointer hover:text-white" href='/#'>
                                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                             stroke-width="2" className="w-5 h-5" viewBox="0 0 24 24">
                                             <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
                                             <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                                         </svg>
                                     </a>
-                                    <a className="ml-3 text-gray-300 cursor-pointer hover:text-white">
+                                    <a className="ml-3 text-gray-300 cursor-pointer hover:text-white" href='/#'>
                                         <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
                                             stroke-linejoin="round" stroke-width="0" className="w-5 h-5" viewBox="0 0 24 24">
                                             <path stroke="none"
@@ -53,13 +53,13 @@ const Footer: React.FC = () => {
                                 <h2 className="mb-3 text-sm font-medium tracking-widest text-white uppercase title-font">About</h2>
                                 <nav className="mb-10 list-none">
                                     <li className="mt-3">
-                                        <a className="text-gray-300 cursor-pointer hover:text-white">Company</a>
+                                        <a className="text-gray-300 cursor-pointer hover:text-white" href='/#'>Company</a>
                                     </li>
                                     <li className="mt-3">
-                                        <a className="text-gray-300 cursor-pointer hover:text-white">Careers</a>
+                                        <a className="text-gray-300 cursor-pointer hover:text-white" href='/#'>Careers</a>
                                     </li>
                                     <li className="mt-3">
-                                        <a className="text-gray-300 cursor-pointer hover:text-white">Blog</a>
+                                        <a className="text-gray-300 cursor-pointer hover:text-white" href='/#'>Blog</a>
                                     </li>
                                 </nav>
                             </div>
@@ -68,13 +68,13 @@ const Footer: React.FC = () => {
                                 </h2>
                                 <nav className="mb-10 list-none">
                                     <li className="mt-3">
-                                        <a className="text-gray-300 cursor-pointer hover:text-white">Terms &amp; Privacy</a>
+                                        <a className="text-gray-300 cursor-pointer hover:text-white" href='/#'>Terms &amp; Privacy</a>
                                     </li>
                                     <li className="mt-3">
-                                        <a className="text-gray-300 cursor-pointer hover:text-white">Pricing</a>
+                                        <a className="text-gray-300 cursor-pointer hover:text-white" href='/#'>Pricing</a>
                                     </li>
                                     <li className="mt-3">
-                                        <a className="text-gray-300 cursor-pointer hover:text-white">FAQ</a>
+                                        <a className="text-gray-300 cursor-pointer hover:text-white" href='/#'>FAQ</a>
                                     </li>
                                 </nav>
                             </div>
@@ -82,13 +82,13 @@ const Footer: React.FC = () => {
                                 <h2 className="mb-3 text-sm font-medium tracking-widest text-white uppercase title-font">Contact</h2>
                                 <nav className="mb-10 list-none">
                                     <li className="mt-3">
-                                        <a className="text-gray-300 cursor-pointer hover:text-white">gabriel.christe@gmail.com</a>
+                                        <a className="text-gray-300 cursor-pointer hover:text-white" href='/#'>gabriel.christe@gmail.com</a>
                                     </li>
                                     <li className="mt-3">
-                                        <a className="text-gray-300 cursor-pointer hover:text-white">Request a Quote</a>
+                                        <a className="text-gray-300 cursor-pointer hover:text-white" href='/#'>Request a Quote</a>
                                     </li>
                                     <li className="mt-3">
-                                        <a className="text-gray-300 cursor-pointer hover:text-white">06 38 87 05 62</a>
+                                        <a className="text-gray-300 cursor-pointer hover:text-white" href='/#'>06 38 87 05 62</a>
                                     </li>
                                 </nav>
                             </div>
