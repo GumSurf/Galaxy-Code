@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './components/App';
+import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 import 'tailwindcss/tailwind.css';
 import './styles/tailwind.css';
+import { DarkModeProvider } from '../src/components/DarkModeContext';
 
 
 const root = ReactDOM.createRoot(
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <DarkModeProvider>
+        <App />
+    </DarkModeProvider>
   </React.StrictMode>
 );
 
