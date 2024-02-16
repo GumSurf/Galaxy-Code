@@ -6,10 +6,14 @@ module.exports = {
     ],
     darkMode: 'class', // or 'media' or 'class'
     theme: {
-        extend: {}
+        extend: {
+            colors: {
+                custom: 'hsl(218, 41%, 15%)',
+            },
+        }
     },
     fontFamily: {},
-        variants: {
+    variants: {
         extend: {},
     },
     plugins: [
