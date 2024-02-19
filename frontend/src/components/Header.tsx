@@ -4,7 +4,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '../assets/images/Galaxy-Code.png';
 
 const navigation = [
-    { name: 'Tutoriel', href: '#', current: true },
+    { name: 'Tutoriel', href: '/tutoriel', current: true },
     { name: 'Cours', href: '#', current: false },
     { name: 'Blog', href: '#', current: false },
     { name: 'Forum', href: '#', current: false },
