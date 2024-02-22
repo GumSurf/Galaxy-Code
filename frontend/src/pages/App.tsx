@@ -4,6 +4,7 @@ import Accueil from './Home';
 import Register from './Register';
 import Login from './Login';
 import Tutoriel from './Tutoriel';
+import Account from './Account';
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
                     <Route path='/Login' element={<Login />} />
                     <Route path="/Register" element={<Register />} />
                     <Route path="/Tutoriel" element={<Tutoriel />} />
+                    <Route path="/Profile" element={<Account />} />
                 </Routes>
             </div>
         </Router>
