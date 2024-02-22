@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
+    const navigate = useNavigate();
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -34,6 +36,7 @@ const LoginForm = () => {
             setUsername('');
             setPassword('');
             setError(null);
+            navigate('/');
         } catch (err: any) {
             console.error('Erreur lors de la connexion:', err.message);
             setError('Nom d\'utilisateur ou mot de passe incorrect');
