@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '../assets/images/Galaxy-Code.png';
+import { isUserLoggedIn, logoutUser } from './util/auth';
 
 const navigation = [
     { name: 'Tutoriel', href: '/tutoriel', current: true },
@@ -15,6 +16,17 @@ function classNames(...classes: string[]) {
 }
 
 export default function Header() {
+    const loginText = isUserLoggedIn() ? 'Mon profil' : 'Se connecter';
+    const loginLink = isUserLoggedIn() ? '/profile' : '/login';
+    const registerText = isUserLoggedIn() ? 'Déconnécté' : 'S\'inscrire';
+    const registerLink = isUserLoggedIn() ? '/deconecte' : '/register';
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logoutUser();
+        navigate('/');
+    };
+
     return (
         <Disclosure as="nav" className="bg-gray-100  dark:bg-custom">
             {({ open }) => (
@@ -59,26 +71,46 @@ export default function Header() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                            <Link to="/login">
-                                <button
-                                    type="button"
-                                    className="relative rounded-full bg-gray-100 dark:bg-custom p-1 text-black dark:text-white hover:text-white dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                >
-                                    <p className='text-black dark:text-white hover:bg-gray-300 dark:hover:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium'>Se connecter</p>
-                                </button>
-                            </Link>
-                            </div>
-                            <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                            <Link to="/register">
-                                <button
-                                    type="button"
-                                    className="relative rounded-full bg-gray-100 dark:bg-custom p-1 text-gray-400 dark:text-purple-700 hover:text-white dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                >
-                                    <p className='text-white bg-purple-700 dark:bg-purple-700 hover:bg-gray-700 dark:hover:bg-gray-900 dark:text-white rounded-md px-3 py-2 text-sm font-medium'>S'inscrire</p>
-                                </button>
-                            </Link>
-                            </div>
+                            {isUserLoggedIn() ? (
+                                <>
+                                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                                        <Link to={loginLink}>
+                                            <button
+                                                type="button"
+                                                className="relative rounded-full bg-gray-100 dark:bg-custom p-1 text-black dark:text-white hover:text-white dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                            >
+                                                <p className='text-black dark:text-white hover:bg-gray-300 dark:hover:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium'>{loginText}</p>
+                                            </button>
+                                        </Link>
+                                    </div>
+                                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                                        <button onClick={handleLogout} className="px-4 py-2 bg-red-500 text-white rounded-md">{registerText}</button>
+                                    </div>
+                                </>
+                            ) : (
+                                <>
+                                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                                        <Link to={loginLink}>
+                                            <button
+                                                type="button"
+                                                className="relative rounded-full bg-gray-100 dark:bg-custom p-1 text-black dark:text-white hover:text-white dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                            >
+                                                <p className='text-black dark:text-white hover:bg-gray-300 dark:hover:bg-gray-900 rounded-md px-3 py-2 text-sm font-medium'>{loginText}</p>
+                                            </button>
+                                        </Link>
+                                    </div>
+                                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                                        <Link to={registerLink}>
+                                            <button
+                                                type="button"
+                                                className="relative rounded-full bg-gray-100 dark:bg-custom p-1 text-gray-400 dark:text-purple-700 hover:text-white dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                            >
+                                                <p className='text-white bg-purple-700 dark:bg-purple-700 hover:bg-gray-700 dark:hover:bg-gray-900 dark:text-white rounded-md px-3 py-2 text-sm font-medium'>{registerText}</p>
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </>
+                            )}
                         </div>
                     </div>
 
