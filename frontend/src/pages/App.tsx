@@ -1,37 +1,35 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from '../components/util/authAdmin';
 import Accueil from './Home';
 import Register from './Register';
 import Login from './Login';
 import Tutoriel from './Tutoriel';
+import TutorialDetail from './TutorielDetail';
 import Profile from './Profile';
-import { disconnect } from '../components/util/disconnect';
+import Layout from '../components/util/layout';
+import AdminLoginPage from './AdminLoginPage';
+import AdminDashboard from './AdminDashboard';
+import AdminRoute from '../components/Route/AdminRoute';
 
 function App() {
-    useEffect(() => {
-        const handleBeforeUnload = () => {
-            disconnect();
-        };
-
-        window.addEventListener('beforeunload', handleBeforeUnload);
-
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
-    }, []);
-
     return (
         <Router>
-            <div>
-                <Routes>
-                    <Route path="/" element={<Accueil />} />
-                    <Route path='/Login' element={<Login />} />
-                    <Route path="/Register" element={<Register />} />
-                    <Route path="/Tutoriel" element={<Tutoriel />} />
-                    <Route path="/Profile" element={<Profile />} />
-                </Routes>
-            </div>
-        </Router>
+            <AuthProvider>
+                <Layout>
+                    <Routes>
+                        <Route path="/" element={<Accueil />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/tutoriel" element={<Tutoriel />} />
+                        <Route path="/tutoriel/:id" element={<TutorialDetail />} />
+                        <Route path="/profile" element={<Profile />} />
+                        <Route path="/admin/login" element={<AdminLoginPage />} />
+                        <Route path="/admin/dashboard" element={<AdminRoute element={<AdminDashboard />} />} />
+                    </Routes>
+                </Layout>
+            </AuthProvider>
+        </Router >
     );
 }
 
