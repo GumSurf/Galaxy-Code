@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ const LoginForm = () => {
         event.preventDefault();
 
         const formData = {
-            username,
+            email,
             password
         };
 
@@ -33,7 +33,7 @@ const LoginForm = () => {
             localStorage.setItem('token', token);
 
             console.log('Connexion réussie!');
-            setUsername('');
+            setEmail('');
             setPassword('');
             setError(null);
             navigate('/');
@@ -46,12 +46,12 @@ const LoginForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="username">Nom d'utilisateur:</label>
+                <label htmlFor="email">Email utilisateur:</label>
                 <input
                     type="text"
-                    id="username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                 />
             </div>
