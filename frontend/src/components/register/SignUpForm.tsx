@@ -6,6 +6,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<{ message: string, code: number } | null>(null); // Spécification du type de l'erreur
+  const [confirmationMessage, setConfirmationMessage] = useState<string>(''); // Ajout d'une variable d'état pour le message de confirmation
 
   // Fonction de gestion de la soumission du formulaire
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -34,7 +35,9 @@ const SignUpForm = () => {
         throw new Error(errorMessage);
       }
 
-      console.log('Inscription réussie!');
+      // Si la requête est réussie, mettre à jour le message de confirmation
+      setConfirmationMessage('Inscription réussie! Veuillez vérifier votre e-mail pour confirmer votre adresse.');
+
       // Réinitialisation des champs du formulaire après soumission
       setUsername('');
       setEmail('');
@@ -79,6 +82,7 @@ const SignUpForm = () => {
         />
       </div>
       {error && <div style={{ color: 'red' }}>{error.message}</div>}
+      {confirmationMessage && <div style={{ color: 'green' }}>{confirmationMessage}</div>} {/* Afficher le message de confirmation */}
       <button type="submit">S'inscrire</button>
     </form>
   );
