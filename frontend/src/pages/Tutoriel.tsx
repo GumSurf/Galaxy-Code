@@ -10,7 +10,7 @@ import '../App.css';
 import '../styles/custom.css';
 import '../styles/output.css';
 
-const LoginPage = () => {
+const Tutoriel = () => {
     const { darkMode } = useDarkMode();
 
     return (
@@ -25,4 +25,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default Tutoriel;
