@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Accueil from '../components/home/Accueil';
-import Card from '../components/home/Card';
+import Card from '../components/home/test_card';
 import PresBlog from '../components/home/PresBlog';
 import DarkModeToggle from '../components/DarkMode';
 
