@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import UserProfile from '../components/Account/UserProfile';
+import UserProfile from '../components/account/UserProfile';
 import DarkModeToggle from '../components/DarkMode';
 
 import { useDarkMode } from '../components/DarkModeContext';
