@@ -16,6 +16,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function Header() {
+    const acceuille = '/';
     const loginText = isUserLoggedIn() ? 'Mon profil' : 'Se connecter';
     const loginLink = isUserLoggedIn() ? '/profile' : '/login';
     const registerText = isUserLoggedIn() ? 'Déconnécté' : 'S\'inscrire';
@@ -47,18 +48,20 @@ export default function Header() {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
+                                <Link to={acceuille}>
                                     <img
                                         className="h-9 w-auto"
                                         src={Logo}
                                         alt="Logo Galaxy Code"
                                     />
+                                </Link>
                                 </div>
                                 <div className="hidden sm:ml-8 sm:block">
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
-                                            <a
+                                            <Link
                                                 key={item.name}
-                                                href={item.href}
+                                                to={item.href}
                                                 className={classNames(
                                                     item.current ? 'bg-gray-900 text-white dark:bg-gray-700 dark:text-white' : 'text-black hover:bg-gray-300 dark:hover:bg-gray-900 hover:text-black dark:text-white',
                                                     'rounded-md px-3 py-2 text-sm font-medium'
@@ -66,7 +69,7 @@ export default function Header() {
                                                 aria-current={item.current ? 'page' : undefined}
                                             >
                                                 {item.name}
-                                            </a>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
