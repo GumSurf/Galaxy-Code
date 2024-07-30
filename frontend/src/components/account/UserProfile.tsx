@@ -1,19 +1,52 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth } from '../util/useAuth';
+import { AuthService } from '../util/AuthService';
+
+interface User {
+    username: string;
+    email: string;
+    emailVerified: boolean;
+}
 
 const UserProfile = () => {
-    const [user, setUser] = useState<{ username: string, email: string, createdDate: string } | null>(null);
+    const [user, setUser] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const token = localStorage.getItem('token');
-    
+    const [error, setError] = useState<string | null>(null);
+    const { isAuthenticated, logout } = useAuth();
+
     useEffect(() => {
-        console.log("token = ", token);
+        const loadAuthStatus = async () => {
+            // Simulation de la vérification de l'authentification
+            setIsLoading(true);
+            await new Promise(resolve => setTimeout(resolve, 1000)); // Simuler un délai
+            setIsLoading(false);
+        };
+
+        loadAuthStatus();
+    }, []);
+
+    useEffect(() => {
+        if (isLoading) return;
+
+        if (!isAuthenticated) {
+            setError('Vous devez être connecté pour accéder à cette page.');
+            setIsLoading(false);
+            return;
+        }
+
         const fetchUserData = async () => {
+            const token = AuthService.getToken();
+            if (!token) {
+                setError('Pas de token trouvé. Veuillez vous connecter.');
+                setIsLoading(false);
+                return;
+            }
+
             try {
                 const response = await fetch('http://localhost:5678/user/profile', {
                     method: 'GET',
                     headers: {
-                        'Authorization': `Bearer ${token}`, // Assurez-vous d'ajuster cela selon votre authentification
+                        'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
                     },
                 });
@@ -21,18 +54,21 @@ const UserProfile = () => {
                     throw new Error('Erreur lors de la récupération des données utilisateur');
                 }
 
-                const userData = await response.json();
-                console.log("userData = ", userData);
+                const userData: User = await response.json();
                 setUser(userData);
                 setIsLoading(false);
-            } catch (error: any) {
-                setError(error.message);
+            } catch (error: unknown) {
+                if (error instanceof Error) {
+                    setError(error.message);
+                } else {
+                    setError('Une erreur inconnue est survenue.');
+                }
                 setIsLoading(false);
             }
         };
 
         fetchUserData();
-    }, []);
+    }, [isAuthenticated, !isLoading]);
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -42,7 +78,6 @@ const UserProfile = () => {
         return <div>Une erreur s'est produite: {error}</div>;
     }
 
-    console.log("user = ", user!.username);
     return (
         <div className="container mx-auto px-4 py-8">
             {user && (
@@ -61,11 +96,10 @@ const UserProfile = () => {
                                 <dt className="text-sm font-medium text-gray-500">Email</dt>
                                 <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">{user.email}</dd>
                             </div>
-                            <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt className="text-sm font-medium text-gray-500">Date de création du compte</dt>
-                                <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">{user.createdDate}</dd>
+                            <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                                <dt className="text-sm font-medium text-gray-500">Email vérifié</dt>
+                                <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">{user.emailVerified ? 'Oui' : 'Non'}</dd>
                             </div>
-                            {/* Ajoutez d'autres informations utilisateur selon vos besoins */}
                         </dl>
                     </div>
                 </div>
