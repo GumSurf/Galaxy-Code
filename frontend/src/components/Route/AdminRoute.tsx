@@ -11,11 +11,9 @@ const AdminRoute: React.FC<AdminRouteProps> = ({ element }) => {
 
   // Si l'utilisateur est authentifié, rendre le composant enfant
   if (isAuthenticated) {
-    console.log("authenticated = true");
     return element;
   }
 
-  console.log("authenticated = false !!!!!!");
   // Sinon, rediriger vers la page de login et mémoriser la page actuelle
   return <Navigate to="/admin/login" state={{ from: location }} />;
 };
