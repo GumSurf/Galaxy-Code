@@ -9,14 +9,10 @@ const AdminLoginPage: React.FC = () => {
     const navigate = useNavigate();
 
     const handleLogin = async () => {
-        console.log("handleLogin a été appelé");
         try {
-            console.log("avant login");
             await login(email, password);
-            console.log("connexion réussie !");
             navigate('/admin/dashboard'); // Rediriger vers la page d'administration après une connexion réussie
         } catch (error) {
-            console.log("connexion failed bien");
             console.error('Login failed', error);
         }
     };
