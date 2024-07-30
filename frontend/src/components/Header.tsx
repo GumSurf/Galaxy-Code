@@ -25,7 +25,7 @@ export default function Header() {
 
     const handleLogout = () => {
         logoutUser();
-        navigate('/');
+        navigate('/Galaxy-Code');
     };
 
     return (
