@@ -1,5 +1,3 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Accueil from '../components/home/Accueil';
 import Card from '../components/home/test_card';
 import PresBlog from '../components/home/PresBlog';
@@ -15,15 +13,12 @@ function Home() {
 
     return (
         <div>
-            <Header />
             <section className={`background-radial-gradient ${!darkMode ? 'background-radial-gradient-clair' : ''}`}>
                 <DarkModeToggle />
                 <Accueil />
                 <Card />
                 <PresBlog />
-
             </section>
-            <Footer />
         </div>
     );
 }

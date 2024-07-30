@@ -11,6 +11,7 @@ import Layout from '../components/util/layout';
 import AdminLoginPage from './AdminLoginPage';
 import AdminDashboard from './AdminDashboard';
 import AdminRoute from '../components/Route/AdminRoute';
+import MainLayout from './MainLayout';
 
 function App() {
     return (
@@ -18,14 +19,16 @@ function App() {
             <AuthProvider>
                 <Layout>
                     <Routes>
-                        <Route path="/" element={<Accueil />} />
-                        <Route path='/login' element={<Login />} />
-                        <Route path="/register" element={<Register />} />
-                        <Route path="/tutoriel" element={<Tutoriel />} />
-                        <Route path="/tutoriel/:id" element={<TutorialDetail />} />
-                        <Route path="/profile" element={<Profile />} />
-                        <Route path="/admin/login" element={<AdminLoginPage />} />
-                        <Route path="/admin/dashboard" element={<AdminRoute element={<AdminDashboard />} />} />
+                        <Route path="/Galaxy-Code" element={<MainLayout />}>
+                            <Route index element={<Accueil />} />
+                            <Route path="login" element={<Login />} />
+                            <Route path="register" element={<Register />} />
+                            <Route path="tutoriel" element={<Tutoriel />} />
+                            <Route path="tutoriel/:id" element={<TutorialDetail />} />
+                            <Route path="profile" element={<Profile />} />
+                            <Route path="admin/login" element={<AdminLoginPage />} />
+                            <Route path="admin/dashboard" element={<AdminRoute element={<AdminDashboard />} />} />
+                        </Route>
                     </Routes>
                 </Layout>
             </AuthProvider>

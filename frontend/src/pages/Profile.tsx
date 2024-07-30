@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import UserProfile from '../components/account/UserProfile';
 import DarkModeToggle from '../components/DarkMode';
 
@@ -14,12 +12,10 @@ const Profile = () => {
 
     return (
         <div>
-            <Header />
             <section className={`background-radial-gradient ${!darkMode ? 'background-radial-gradient-clair' : ''}`}>
                 <DarkModeToggle />
                 <UserProfile />
             </section>
-            <Footer />
         </div>
     );
 };

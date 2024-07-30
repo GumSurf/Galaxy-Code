@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import SignUpPage from '../components/register/SignUpPage';
 import DarkModeToggle from '../components/DarkMode';
 
@@ -14,12 +12,10 @@ function Register() {
 
     return (
         <div>
-            <Header />
             <section className={`background-radial-gradient ${!darkMode ? 'background-radial-gradient-clair' : ''}`}>
                 <DarkModeToggle />
                 <SignUpPage />
             </section>
-            <Footer />
         </div>
     );
 }
