@@ -8,7 +8,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   useEffect(() => {
     const handleBeforeUnload = () => {
-      disconnect();
+      //disconnect();
     };
 
     window.addEventListener('beforeunload', handleBeforeUnload);
