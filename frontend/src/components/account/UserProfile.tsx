@@ -12,13 +12,12 @@ const UserProfile = () => {
     const [user, setUser] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const { isAuthenticated, logout } = useAuth();
+    const { isAuthenticated } = useAuth();
 
     useEffect(() => {
         const loadAuthStatus = async () => {
-            // Simulation de la vérification de l'authentification
             setIsLoading(true);
-            await new Promise(resolve => setTimeout(resolve, 1000)); // Simuler un délai
+            await new Promise(resolve => setTimeout(resolve, 1000));
             setIsLoading(false);
         };
 
