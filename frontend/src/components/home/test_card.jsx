@@ -31,7 +31,7 @@ export default function CardWithActionButton() {
                         </h5>
                         <p className="font-normal text-gray-700 dark:text-gray-400">{tutorial.content.slice(0, 100)}...</p>
                         <Button>
-                            <a href={"Galaxy-Code/tutoriel/" + tutorial._id}>Lire la suite</a>
+                            <a href={"tutoriel/" + tutorial._id}>Lire la suite</a>
                         </Button>
                     </Card>
                 ))}
