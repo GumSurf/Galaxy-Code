@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getTutoriel } from '../components/util/common'
 
 interface Tutorial {
   id: string;
@@ -13,22 +14,17 @@ const TutorialDetail: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  const params: any = useParams();
+  console.log("params = ", params);
+
   useEffect(() => {
     const fetchTutorial = async () => {
-      try {
-        const response = await fetch(`https://galaxy-code-backend.vercel.app/api/tutoriels/${id}`);
-        if (!response.ok) {
-          throw new Error('Erreur lors de la récupération du tutoriel');
-        }
-        const data = await response.json();
+      const data = await getTutoriel(params.id);
+      if (data) {
         setTutorial(data);
-      } catch (error: any) {
-        setError(error.message);
-      } finally {
         setLoading(false);
       }
-    };
-
+    }
     fetchTutorial();
   }, [id]);
 
