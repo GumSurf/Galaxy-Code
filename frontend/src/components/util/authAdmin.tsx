@@ -19,7 +19,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const login = async (email: string, password: string) => {
 
         try {
-            const response = await axios.post('http://localhost:5678/auth/login', { email, password });
+            const response = await axios.post('https://galaxy-code-backend.vercel.app/auth/login', { email, password });
             const { access_token } = response.data;
             setUser({ email, token: access_token });
             localStorage.setItem('token', access_token);

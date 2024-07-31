@@ -11,7 +11,7 @@ export const useAuth = () => {
                 const token = AuthService.getToken();
 
                 if (token) {
-                    const response = await fetch('http://localhost:5678/api/validate-token', {
+                    const response = await fetch('https://galaxy-code-backend.vercel.app/api/validate-token', {
                         method: 'POST',
                         headers: {
                             'Authorization': `Bearer ${token}`,

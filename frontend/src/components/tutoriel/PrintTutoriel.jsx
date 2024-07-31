@@ -5,7 +5,7 @@ export default function TutorialsPage() {
     const [tutorials, setTutorials] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5678/api/tutoriels')
+        fetch('https://galaxy-code-backend.vercel.app/api/tutoriels')
             .then(response => response.json())
             .then(data => {
                 setTutorials(data);

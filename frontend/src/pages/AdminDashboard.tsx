@@ -12,7 +12,7 @@ const AdminDashboard: React.FC = () => {
 
   const fetchArticles = async () => {
     try {
-      const response = await axios.get('http://localhost:5678/api/articles');
+      const response = await axios.get('https://galaxy-code-backend.vercel.app/api/articles');
       setArticles(response.data);
     } catch (error) {
       console.error('Error fetching articles', error);
@@ -21,7 +21,7 @@ const AdminDashboard: React.FC = () => {
 
   const handleCreateArticle = async () => {
     try {
-      await axios.post('http://localhost:5678/api/articles', newArticle);
+      await axios.post('https://galaxy-code-backend.vercel.app/api/articles', newArticle);
       fetchArticles();
     } catch (error) {
       console.error('Error creating article', error);
@@ -30,7 +30,7 @@ const AdminDashboard: React.FC = () => {
 
   const handleDeleteArticle = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:5678/api/articles/${id}`);
+      await axios.delete(`https://galaxy-code-backend.vercel.app/api/articles/${id}`);
       fetchArticles();
     } catch (error) {
       console.error('Error deleting article', error);

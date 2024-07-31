@@ -8,7 +8,7 @@ export default function CardWithActionButton() {
 
     useEffect(() => {
         // Faire une requête à votre backend pour récupérer les données des tutoriels
-        fetch('http://localhost:5678/api/tutoriels')
+        fetch('https://galaxy-code-backend.vercel.app/api/tutoriels')
             .then(response => response.json())
             .then(data => {
                 // Mettre à jour le state avec les données récupérées

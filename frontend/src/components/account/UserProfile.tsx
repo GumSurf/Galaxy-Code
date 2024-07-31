@@ -43,7 +43,7 @@ const UserProfile = () => {
             }
 
             try {
-                const response = await fetch('http://localhost:5678/user/profile', {
+                const response = await fetch('https://galaxy-code-backend.vercel.app/user/profile', {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,

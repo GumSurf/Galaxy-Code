@@ -16,7 +16,7 @@ const TutorialDetail: React.FC = () => {
   useEffect(() => {
     const fetchTutorial = async () => {
       try {
-        const response = await fetch(`http://localhost:5678/api/tutoriels/${id}`);
+        const response = await fetch(`https://galaxy-code-backend.vercel.app/api/tutoriels/${id}`);
         if (!response.ok) {
           throw new Error('Erreur lors de la récupération du tutoriel');
         }
