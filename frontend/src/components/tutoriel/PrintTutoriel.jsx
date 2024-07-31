@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'flowbite-react';
+import { getTutoriels } from '../util/common';
 
 export default function TutorialsPage() {
     const [tutorials, setTutorials] = useState([]);
 
     useEffect(() => {
-        fetch('https://galaxy-code-backend.vercel.app/api/tutoriels')
-            .then(response => response.json())
-            .then(data => {
-                setTutorials(data);
-            })
-            .catch(error => console.error('Error fetching tutorials:', error));
-    }, []);
+        async function getTutorielsList() {
+          const data = await getTutoriels();
+          if (data) {
+            setTutorials(data);
+          }
+        }
+        getTutorielsList();
+      }, []);
 
     console.log("tutorial = ", tutorials);
 
