@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Switch } from 'react-router-dom';
 import { AuthProvider } from '../components/util/authAdmin';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -21,7 +22,7 @@ function App() {
             <AuthProvider>
                 <Layout>
                     <Header />
-                    <Routes>
+                    <Switch>
                         <Route path={APP_ROUTES.HOME} element={<Accueil />} />
                         <Route path={APP_ROUTES.SIGN_IN} element={<Login />} />
                         <Route path={APP_ROUTES.SIGN_UP} element={<Register />} />
@@ -30,7 +31,7 @@ function App() {
                         <Route path={APP_ROUTES.PROFILE} element={<Profile />} />
                         <Route path={APP_ROUTES.ADMIN_LOGIN} element={<AdminLoginPage />} />
                         <Route path={APP_ROUTES.ADMIN_DASHBOARD} element={<AdminRoute element={<AdminDashboard />} />} />
-                    </Routes>
+                    </Switch>
                     <Footer />
                 </Layout>
             </AuthProvider>
