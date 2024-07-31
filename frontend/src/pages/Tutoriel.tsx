@@ -1,4 +1,3 @@
-import React from 'react';
 import PrintTutoriel from '../components/tutoriel/PrintTutoriel';
 import DarkModeToggle from '../components/DarkMode';
 
