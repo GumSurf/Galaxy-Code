@@ -16,7 +16,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function Header() {
-    const acceuille = '/';
+    const acceuille = '/Galaxy-Code';
     const loginText = isUserLoggedIn() ? 'Mon profil' : 'Se connecter';
     const loginLink = isUserLoggedIn() ? '/profile' : '/login';
     const registerText = isUserLoggedIn() ? 'Déconnécté' : 'S\'inscrire';
@@ -25,7 +25,7 @@ export default function Header() {
 
     const handleLogout = () => {
         logoutUser();
-        navigate('/');
+        navigate('/Galaxy-Code');
     };
 
     return (
