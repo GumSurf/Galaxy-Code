@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Tutoriel from '../../pages/Tutoriel';
+import { API_ROUTES } from './constant';
 
 /*function formatBooks(bookArray) {
   return bookArray.map((book) => {
@@ -32,31 +32,30 @@ export async function getAuthenticatedUser() {
     console.error('getAuthenticatedUser, Something Went Wrong', err);
     return defaultReturnObject;
   }
-}
+}*/
 
-export async function getBooks() {
+export async function getTutoriels() {
   try {
     const response = await axios({
       method: 'GET',
-      url: `${API_ROUTES.BOOKS}`,
+      url: `${API_ROUTES.TUTORIELS}`,
     });
     // eslint-disable-next-line array-callback-return
-    const books = formatBooks(response.data);
-    return books;
+    const tutoriels = response.data;
+    return tutoriels;
   } catch (err) {
     console.error(err);
     return [];
   }
-}*/
+}
 
 export async function getTutoriel(id: string) {
   try {
     const response = await axios({
       method: 'GET',
-      url: `https://galaxy-code-backend.vercel.app/api/tutoriels/${id}`,
+      url: `${API_ROUTES.TUTORIELS}/${id}`,
     });
     const tutoriel = response.data;
-    // eslint-disable-next-line no-underscore-dangle
     tutoriel.id = tutoriel._id;
     return tutoriel;
   } catch (err) {
