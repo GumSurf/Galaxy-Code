@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from '../components/util/authAdmin';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import Accueil from './Home';
 import Register from './Register';
 import Login from './Login';
@@ -11,25 +13,25 @@ import Layout from '../components/util/layout';
 import AdminLoginPage from './AdminLoginPage';
 import AdminDashboard from './AdminDashboard';
 import AdminRoute from '../components/Route/AdminRoute';
-import MainLayout from './MainLayout';
+import { APP_ROUTES } from '../components/util/constant';
 
 function App() {
     return (
         <Router>
             <AuthProvider>
                 <Layout>
+                    <Header />
                     <Routes>
-                        <Route path="/Galaxy-Code" element={<MainLayout />}>
-                            <Route index element={<Accueil />} />
-                            <Route path="login" element={<Login />} />
-                            <Route path="register" element={<Register />} />
-                            <Route path="tutoriel" element={<Tutoriel />} />
-                            <Route path="get/tutoriel/:id" element={<TutorialDetail />} />
-                            <Route path="profile" element={<Profile />} />
-                            <Route path="admin/login" element={<AdminLoginPage />} />
-                            <Route path="admin/dashboard" element={<AdminRoute element={<AdminDashboard />} />} />
-                        </Route>
+                        <Route path={APP_ROUTES.HOME} element={<Accueil />} />
+                        <Route path={APP_ROUTES.SIGN_IN} element={<Login />} />
+                        <Route path={APP_ROUTES.SIGN_UP} element={<Register />} />
+                        <Route path={APP_ROUTES.TUTORIELS} element={<Tutoriel />} />
+                        <Route path={APP_ROUTES.TUTORIEL} element={<TutorialDetail />} />
+                        <Route path={APP_ROUTES.PROFILE} element={<Profile />} />
+                        <Route path={APP_ROUTES.ADMIN_LOGIN} element={<AdminLoginPage />} />
+                        <Route path={APP_ROUTES.ADMIN_DASHBOARD} element={<AdminRoute element={<AdminDashboard />} />} />
                     </Routes>
+                    <Footer />
                 </Layout>
             </AuthProvider>
         </Router >
