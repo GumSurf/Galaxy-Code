@@ -30,7 +30,7 @@ export default function TutorialsPage() {
                         </h5>
                         <p className="font-normal text-gray-700 dark:text-gray-400">{tutorial.content.slice(0, 100)}...</p>
                         <Button>
-                            <a href={"tutoriel/" + tutorial._id}>Lire la suite</a>
+                            <Link to={`/tutoriel/${tutorial._id}`}>Lire la suite</Link>
                         </Button>
                     </Card>
                 ))}
