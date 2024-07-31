@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Galaxy-Code/static/css/main.435b09f7.css",
-    "main.js": "/Galaxy-Code/static/js/main.13bd9c35.js",
+    "main.js": "/Galaxy-Code/static/js/main.9297c3be.js",
     "static/js/787.cda612ba.chunk.js": "/Galaxy-Code/static/js/787.cda612ba.chunk.js",
     "static/media/learn.png": "/Galaxy-Code/static/media/learn.a2ea1772dbb7bc718c87.png",
     "index.html": "/Galaxy-Code/index.html",
     "main.435b09f7.css.map": "/Galaxy-Code/static/css/main.435b09f7.css.map",
-    "main.13bd9c35.js.map": "/Galaxy-Code/static/js/main.13bd9c35.js.map",
+    "main.9297c3be.js.map": "/Galaxy-Code/static/js/main.9297c3be.js.map",
     "787.cda612ba.chunk.js.map": "/Galaxy-Code/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.435b09f7.css",
-    "static/js/main.13bd9c35.js"
+    "static/js/main.9297c3be.js"
   ]
 }
