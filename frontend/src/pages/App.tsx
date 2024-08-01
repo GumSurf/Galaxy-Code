@@ -17,7 +17,7 @@ import { APP_ROUTES } from '../components/util/constant';
 
 function App() {
     return (
-        <Router basename="/Galaxy-Code">
+        <Router>
             <AuthProvider>
                 <Layout>
                     <Header />
