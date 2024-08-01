@@ -14,6 +14,6 @@ export const APP_ROUTES = {
   TUTORIELS: '/tutoriel',
   TUTORIEL: '/tutoriel/:id',
   PROFILE: '/Profile',
-  ADMIN_LOGIN: '/Ajouter',
-  ADMIN_DASHBOARD: 'tutoriel/modifier/:id',
+  ADMIN_LOGIN: '/Admin/Connexion',
+  ADMIN_DASHBOARD: '/Admin/Edit',
 };

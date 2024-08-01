@@ -11,7 +11,7 @@ const AdminLoginPage: React.FC = () => {
     const handleLogin = async () => {
         try {
             await login(email, password);
-            navigate('/admin/dashboard'); // Rediriger vers la page d'administration après une connexion réussie
+            navigate('/Admin/Edit'); // Rediriger vers la page d'administration après une connexion réussie
         } catch (error) {
             console.error('Login failed', error);
         }
