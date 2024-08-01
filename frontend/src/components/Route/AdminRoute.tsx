@@ -15,7 +15,7 @@ const AdminRoute: React.FC<AdminRouteProps> = ({ element }) => {
   }
 
   // Sinon, rediriger vers la page de login et mémoriser la page actuelle
-  return <Navigate to="/Admin/Edit" state={{ from: location }} />;
+  return <Navigate to="/Admin/Connexion" state={{ from: location }} />;
 };
 
 export default AdminRoute;

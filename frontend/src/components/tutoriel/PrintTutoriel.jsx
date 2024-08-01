@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Button } from 'flowbite-react';
 import { getTutoriels } from '../util/common';
+import { Link } from 'react-router-dom';
 
 export default function TutorialsPage() {
     const [tutorials, setTutorials] = useState([]);

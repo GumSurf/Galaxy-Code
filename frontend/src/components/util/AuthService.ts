@@ -1,6 +1,6 @@
 export const AuthService = {
     login: async (email: string, password: string) => {
-        const response = await fetch('localhost:5678/api/login', {
+        const response = await fetch('https://galaxy-code-backend.vercel.app/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

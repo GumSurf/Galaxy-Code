@@ -20,7 +20,7 @@ export default function Header() {
     const loginText = isUserLoggedIn() ? 'Mon profil' : 'Se connecter';
     const loginLink = isUserLoggedIn() ? '/Profile' : '/Connexion';
     const registerText = isUserLoggedIn() ? 'Déconnécté' : 'S\'inscrire';
-    const registerLink = isUserLoggedIn() ? '/Deconnecte' : '/Inscrire';
+    const registerLink = isUserLoggedIn() ? '/Deconnecte' : '/Inscription';
     const navigate = useNavigate();
 
     const handleLogout = () => {

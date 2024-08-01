@@ -1,17 +1,17 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../components/util/authAdmin'; // Assurez-vous de définir et d'importer votre contexte d'authentification
+import { AuthContext } from '../components/util/authAdmin';
 
 const AdminLoginPage: React.FC = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const { login } = useContext(AuthContext); // Utiliser le contexte d'authentification pour la fonction login
+    const { login } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleLogin = async () => {
         try {
             await login(email, password);
-            navigate('/Admin/Edit'); // Rediriger vers la page d'administration après une connexion réussie
+            navigate('/Admin/Edit');
         } catch (error) {
             console.error('Login failed', error);
         }
