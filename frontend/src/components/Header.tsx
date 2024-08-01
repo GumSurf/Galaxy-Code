@@ -5,7 +5,7 @@ import Logo from '../assets/images/Galaxy-Code.png';
 import { isUserLoggedIn, logoutUser } from './util/auth';
 
 const navigation = [
-    { name: 'Tutoriel', href: '/tutoriel', current: true },
+    { name: 'Tutoriel', href: '/Tutoriel', current: true },
     { name: 'Cours', href: '#', current: false },
     { name: 'Blog', href: '#', current: false },
     { name: 'Forum', href: '#', current: false },
@@ -16,16 +16,16 @@ function classNames(...classes: string[]) {
 }
 
 export default function Header() {
-    const acceuille = '/Galaxy-Code';
+    const acceuille = '/';
     const loginText = isUserLoggedIn() ? 'Mon profil' : 'Se connecter';
-    const loginLink = isUserLoggedIn() ? '/profile' : '/login';
+    const loginLink = isUserLoggedIn() ? '/Profile' : '/Connexion';
     const registerText = isUserLoggedIn() ? 'Déconnécté' : 'S\'inscrire';
-    const registerLink = isUserLoggedIn() ? '/deconecte' : '/register';
+    const registerLink = isUserLoggedIn() ? '/Deconnecte' : '/Inscrire';
     const navigate = useNavigate();
 
     const handleLogout = () => {
         logoutUser();
-        navigate('/Galaxy-Code');
+        navigate('/');
     };
 
     return (
