@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://gumsurf.github.io/Galaxy-Code",
+  "homepage": "https://galaxy-code-frontend.vercel.app",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.17",
