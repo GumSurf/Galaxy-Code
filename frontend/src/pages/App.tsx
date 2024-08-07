@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from '../components/util/authAdmin';
+import { APP_ROUTES } from '../components/util/constant';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Accueil from './Home';
@@ -12,8 +13,9 @@ import Profile from './Profile';
 import Layout from '../components/util/layout';
 import AdminLoginPage from './AdminLoginPage';
 import AdminDashboard from './AdminDashboard';
+import ArticleDetail from './ArticleDetail';
+import EditArticle from './EditArticle';
 import AdminRoute from '../components/Route/AdminRoute';
-import { APP_ROUTES } from '../components/util/constant';
 
 function App() {
     return (
@@ -30,6 +32,8 @@ function App() {
                         <Route path={APP_ROUTES.PROFILE} element={<Profile />} />
                         <Route path={APP_ROUTES.ADMIN_LOGIN} element={<AdminLoginPage />} />
                         <Route path={APP_ROUTES.ADMIN_DASHBOARD} element={<AdminRoute element={<AdminDashboard />} />} />
+                        <Route path={APP_ROUTES.ADMIN_DETAIL} element={<ArticleDetail />} />
+                        <Route path="/edit/:id" element={<EditArticle />} />
                     </Routes>
                     <Footer />
                 </Layout>
