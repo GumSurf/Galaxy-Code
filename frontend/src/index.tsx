@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import 'tailwindcss/tailwind.css';
 import './styles/tailwind.css';
 import { DarkModeProvider } from '../src/components/DarkModeContext';
+import 'prismjs';
+import 'prismjs/themes/prism-tomorrow.css'; // Choisissez le thème que vous préférez
 
 
 const root = ReactDOM.createRoot(
