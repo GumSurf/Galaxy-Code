@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import { API_ROUTES } from '../components/util/constant';
 
 interface Paragraph {
   type: 'text' | 'code';
@@ -16,7 +17,7 @@ const EditArticle: React.FC = () => {
   useEffect(() => {
     const fetchArticle = async () => {
       try {
-        const response = await axios.get(`http://localhost:5678/api/tutoriels/${id}`);
+        const response = await axios.get(`${API_ROUTES.TUTORIELS}/${id}`);
         setArticle(response.data);
       } catch (error) {
         console.error('Error fetching article', error);
@@ -62,7 +63,7 @@ const EditArticle: React.FC = () => {
 
   const handleUpdateArticle = async () => {
     try {
-      await axios.put(`http://localhost:5678/api/tutoriels/${id}`, article);
+      await axios.put(`${API_ROUTES.TUTORIELS}/${id}`, article);
       navigate('/Admin/Edit');
     } catch (error) {
       console.error('Error updating article', error);
