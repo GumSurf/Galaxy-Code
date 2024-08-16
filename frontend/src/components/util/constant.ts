@@ -1,11 +1,15 @@
-const API_URL = 'https://galaxy-code-backend.vercel.app';
+const API_URL = 'http://localhost:5678';
 
 export const API_ROUTES = {
-  SIGN_UP: `${API_URL}/api/auth/signup`,
-  SIGN_IN: `${API_URL}/api/auth/login`,
+  SIGN_UP: `${API_URL}/api/auth/register`,
+  SIGN_IN: `${API_URL}/auth/login`,
   TUTORIELS: `${API_URL}/api/tutoriels`,
-  BEST_RATED: `${API_URL}/api/books/bestrating`,
+  BLOGS: `${API_URL}/api/blogs`,
   CONFIRM_EMAIL: `${API_URL}/confirm-email`,
+  USER_PROFILE: `${API_URL}/user/profile`,
+  API_LOGIN: `${API_URL}/api/login`,
+  API_VALIDATE_TOKEN: `${API_URL}/api/validate-token`,
+  API: `${API_URL}/api`,
 };
 
 export const APP_ROUTES = {
@@ -17,4 +21,7 @@ export const APP_ROUTES = {
   PROFILE: '/Profile',
   ADMIN_LOGIN: '/Admin/Connexion',
   ADMIN_DASHBOARD: '/Admin/Edit',
+  ADMIN_DETAIL: '/article/:id',
+  BLOG_DETAIL: '/blogs/:id',
+  BLOGS: '/blogs'
 };
