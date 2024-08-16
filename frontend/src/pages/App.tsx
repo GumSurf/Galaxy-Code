@@ -8,14 +8,17 @@ import Accueil from './Home';
 import Register from './Register';
 import Login from './Login';
 import Tutoriel from './Tutoriel';
-import TutorialDetail from './TutorielDetail';
+import TutorialDetail from './ArticleDetail';
 import Profile from './Profile';
 import Layout from '../components/util/layout';
 import AdminLoginPage from './AdminLoginPage';
 import AdminDashboard from './AdminDashboard';
 import ArticleDetail from './ArticleDetail';
+import BlogDetail from './BlogDetail';
 import EditArticle from './EditArticle';
 import AdminRoute from '../components/Route/AdminRoute';
+import Blogs from './PrintBlogs';
+import SearchResultsPage from './SearchResultsPage';
 
 function App() {
     return (
@@ -33,7 +36,10 @@ function App() {
                         <Route path={APP_ROUTES.ADMIN_LOGIN} element={<AdminLoginPage />} />
                         <Route path={APP_ROUTES.ADMIN_DASHBOARD} element={<AdminRoute element={<AdminDashboard />} />} />
                         <Route path={APP_ROUTES.ADMIN_DETAIL} element={<ArticleDetail />} />
-                        <Route path="/edit/:id" element={<EditArticle />} />
+                        <Route path={APP_ROUTES.BLOG_DETAIL} element={<BlogDetail />} />
+                        <Route path={APP_ROUTES.BLOGS} element={<Blogs />} />
+                        <Route path={APP_ROUTES.EDIT_ARTICLE} element={<EditArticle />} />
+                        <Route path={APP_ROUTES.SEARCH} element={<SearchResultsPage />} />
                     </Routes>
                     <Footer />
                 </Layout>
