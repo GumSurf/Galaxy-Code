@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AuthService } from './AuthService';
+import { API_ROUTES } from './constant';
 
 export const useAuth = () => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null); // Initialisé à null pour indiquer l'état de chargement
@@ -11,7 +12,7 @@ export const useAuth = () => {
                 const token = AuthService.getToken();
 
                 if (token) {
-                    const response = await fetch('https://galaxy-code-backend.vercel.app/api/validate-token', {
+                    const response = await fetch(`${API_ROUTES.API_VALIDATE_TOKEN}`, {
                         method: 'POST',
                         headers: {
                             'Authorization': `Bearer ${token}`,
