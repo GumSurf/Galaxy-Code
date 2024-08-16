@@ -1,7 +1,7 @@
 import Accueil from '../components/home/Accueil';
-import Card from '../components/home/test_card';
 import PresBlog from '../components/home/PresBlog';
 import DarkModeToggle from '../components/DarkMode';
+import PrintTutoriel from '../components/tutoriel/PrintTutoriel';
 
 import { useDarkMode } from '../components/DarkModeContext';
 import '../App.css';
@@ -16,7 +16,7 @@ function Home() {
             <section className={`background-radial-gradient ${!darkMode ? 'background-radial-gradient-clair' : ''}`}>
                 <DarkModeToggle />
                 <Accueil />
-                <Card />
+                <PrintTutoriel />
                 <PresBlog />
             </section>
         </div>
