@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5678';
+const API_URL = 'https://galaxy-code-backend.vercel.app';
 
 export const API_ROUTES = {
     SIGN_UP: `${API_URL}/api/auth/register`,
