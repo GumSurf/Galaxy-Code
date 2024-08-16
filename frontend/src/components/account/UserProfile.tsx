@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../util/useAuth';
 import { AuthService } from '../util/AuthService';
+import { API_ROUTES } from '../util/constant';
 
 interface User {
     username: string;
@@ -42,7 +43,7 @@ const UserProfile = () => {
             }
 
             try {
-                const response = await fetch('https://galaxy-code-backend.vercel.app/user/profile', {
+                const response = await fetch(`${API_ROUTES.USER_PROFILE}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
