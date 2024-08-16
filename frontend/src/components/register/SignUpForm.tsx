@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_ROUTES } from '../util/constant';
 
 const SignUpForm = () => {
   // Déclaration des états pour les champs du formulaire
@@ -21,7 +22,7 @@ const SignUpForm = () => {
 
     try {
       // Envoi de la requête POST à l'endpoint du backend
-      const response = await fetch('https://galaxy-code-backend.vercel.app/auth/register', {
+      const response = await fetch(`${API_ROUTES.SIGN_UP}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
