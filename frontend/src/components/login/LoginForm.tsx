@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_ROUTES } from '../util/constant';
 
 const LoginForm = () => {
     const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const LoginForm = () => {
         };
 
         try {
-            const response = await fetch('https://galaxy-code-backend.vercel.app/auth/login', {
+            const response = await fetch(`${API_ROUTES.SIGN_IN}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
