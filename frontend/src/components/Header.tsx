@@ -1,18 +1,19 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Disclosure } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Disclosure } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Logo from '../assets/images/Galaxy-Code.png';
 import { isUserLoggedIn, logoutUser } from './util/auth';
+import { useState } from 'react';
 
 const navigation = [
     { name: 'Tutoriel', href: '/Tutoriel', current: true },
     { name: 'Cours', href: '#', current: false },
-    { name: 'Blog', href: '#', current: false },
+    { name: 'Blog', href: '/blogs', current: false },
     { name: 'Forum', href: '#', current: false },
-]
+];
 
 function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(' ');
 }
 
 export default function Header() {
@@ -22,20 +23,31 @@ export default function Header() {
     const registerText = isUserLoggedIn() ? 'Déconnécté' : 'S\'inscrire';
     const registerLink = isUserLoggedIn() ? '/Deconnecte' : '/Inscription';
     const navigate = useNavigate();
+    const [searchTerm, setSearchTerm] = useState('');
 
     const handleLogout = () => {
         logoutUser();
         navigate('/');
     };
 
+    const handleSearch = () => {
+        if (searchTerm.trim() !== '') {
+            // Si le champ de recherche n'est pas vide, effectuer la recherche
+            navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
+        } else {
+            // Sinon, vous pouvez choisir d'afficher un message d'erreur ou simplement ne rien faire
+            alert('Veuillez entrer un terme de recherche.');
+        }
+    };
+
     return (
-        <Disclosure as="nav" className="bg-gray-100  dark:bg-custom">
+        <Disclosure as="nav" className="bg-gray-100 dark:bg-custom">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7x1 px-2 sm:px-6 lg:px-8">
                         <div className="relative flex h-16 items-center justify-between">
                             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                                {/* Mobile menu button*/}
+                                {/* Mobile menu button */}
                                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-black dark:text-white hover:bg-gray-700 dark:hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                     <span className="absolute -inset-0.5" />
                                     <span className="sr-only">Open main menu</span>
@@ -48,13 +60,13 @@ export default function Header() {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                <Link to={acceuille}>
-                                    <img
-                                        className="h-9 w-auto"
-                                        src={Logo}
-                                        alt="Logo Galaxy Code"
-                                    />
-                                </Link>
+                                    <Link to={acceuille}>
+                                        <img
+                                            className="h-9 w-auto"
+                                            src={Logo}
+                                            alt="Logo Galaxy Code"
+                                        />
+                                    </Link>
                                 </div>
                                 <div className="hidden sm:ml-8 sm:block">
                                     <div className="flex space-x-4">
@@ -74,6 +86,25 @@ export default function Header() {
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Barre de recherche */}
+                            <div className="relative flex items-center w-full max-w-xs ml-auto sm:ml-0 sm:pl-6">
+                                <input
+                                    type="text"
+                                    className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    placeholder="Rechercher..."
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    onKeyDown={(e) => e.key === 'Enter' && handleSearch()} // Rechercher au press de la touche "Entrée"
+                                />
+                                <button
+                                    className="absolute right-0 p-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-700"
+                                    onClick={handleSearch}
+                                >
+                                    Rechercher
+                                </button>
+                            </div>
+
                             {isUserLoggedIn() ? (
                                 <>
                                     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -138,5 +169,5 @@ export default function Header() {
                 </>
             )}
         </Disclosure>
-    )
+    );
 }
