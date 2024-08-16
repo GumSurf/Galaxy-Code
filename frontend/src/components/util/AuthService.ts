@@ -1,6 +1,8 @@
+import { API_ROUTES } from './constant';
+
 export const AuthService = {
     login: async (email: string, password: string) => {
-        const response = await fetch('https://galaxy-code-backend.vercel.app/api/login', {
+        const response = await fetch(`${API_ROUTES.API_LOGIN}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
