@@ -8,15 +8,20 @@ export default function TutorialsPage() {
 
     useEffect(() => {
         async function getTutorielsList() {
-          const data = await getTutoriels();
-          if (data) {
-            setTutorials(data);
-          }
+            const data = await getTutoriels();
+            console.log("data = ", data);
+
+            // Assurez-vous que data est un tableau et que chaque élément a les propriétés attendues
+            if (Array.isArray(data) && data.length > 0 && data[0].title) {
+                setTutorials(data);
+            } else {
+                console.error('Les données récupérées ne sont pas dans le format attendu.');
+            }
         }
         getTutorielsList();
-      }, []);
+    }, []);
 
-    console.log("tutorial = ", tutorials);
+    console.log("tutorials = ", tutorials);
 
     return (
         <div className="container mt-0 mb-0 min-h-screen my-24 mx-auto md:px-6">
@@ -29,7 +34,13 @@ export default function TutorialsPage() {
                         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                             {tutorial.title}
                         </h5>
-                        <p className="font-normal text-gray-700 dark:text-gray-400">{tutorial.content.slice(0, 100)}...</p>
+                        <div className="font-normal text-gray-700 dark:text-gray-400">
+                            {tutorial.content.map((paragraph, index) => (
+                                <p key={index}>
+                                    {paragraph.content}
+                                </p>
+                            ))}
+                        </div>
                         <Button>
                             <Link to={`/tutoriel/${tutorial._id}`}>Lire la suite</Link>
                         </Button>
