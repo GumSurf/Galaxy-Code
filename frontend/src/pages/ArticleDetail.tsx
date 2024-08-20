@@ -28,6 +28,16 @@ interface User {
     emailVerified: boolean;
 }
 
+// Fonction pour remplacer les sauts de ligne par des balises <br>
+const replaceLineBreaks = (text: string) => {
+    return text.split('\n').map((item, index) => (
+        <React.Fragment key={index}>
+            {item}
+            <br />
+        </React.Fragment>
+    ));
+};
+
 const ArticleDetail: React.FC = () => {
     const { id } = useParams<{ id: string }>(); // Extraction de l'ID de l'URL
     const [article, setArticle] = useState<ArticleProps | null>(null);
@@ -152,7 +162,9 @@ const ArticleDetail: React.FC = () => {
                             onChange={(newCode) => handleCodeChange(index, newCode)}
                         />
                     ) : (
-                        <p className="text-lg text-gray-700">{paragraph.content}</p>
+                        <p className="text-lg text-gray-700">
+                            {replaceLineBreaks(paragraph.content)}
+                        </p>
                     )}
                 </div>
             ))}
