@@ -27,21 +27,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, code, onChange }) => {
 
   return (
     <div>
-      <textarea
-        ref={textareaRef}
-        value={code}
-        onChange={handleInputChange}
-        style={{
-          width: '100%',
-          height: 'auto',
-          fontFamily: 'monospace',
-          fontSize: '1em',
-          marginBottom: '10px',
-          border: '1px solid #ccc',
-          padding: '10px',
-          overflow: 'auto',
-        }}
-      />
       <pre className={`language-${language}`} style={{ overflow: 'auto' }}>
         <code ref={codeRef} className={`language-${language}`}>
           {code}
@@ -52,3 +37,19 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, code, onChange }) => {
 };
 
 export default CodeBlock;
+
+/*<textarea
+ref={textareaRef}
+value={code}
+onChange={handleInputChange}
+style={{
+  width: '100%',
+  height: 'auto',
+  fontFamily: 'monospace',
+  fontSize: '1em',
+  marginBottom: '10px',
+  border: '1px solid #ccc',
+  padding: '10px',
+  overflow: 'auto',
+}}
+/>*/
